@@ -9,14 +9,14 @@ import { useState } from "react";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard" },
-  { name: "Orders", href: "/order" },
+  { name: "Orders", href: "/orders" },
   { name: "Cart Page", href: "/cart" },
   { name: "Check Out", href: "/checkout" },
 ];
 
 const Navbar = () => {
   const currentUser = true;
-  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6 font-primary">
@@ -44,24 +44,27 @@ const Navbar = () => {
         {/** RightNavigation */}
         <div className="relative flex items-center md:space-x-3 space-x-2">
           {currentUser ? (
-            <div className="flex items-center">
+            <div className="relative flex items-center">
               <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                 <img
+                  src={avatar}
+                  alt="Profile"
                   className={`size-7 rounded-full ${
                     currentUser ? "border-2 border-primary" : ""
                   }`}
-                  src={avatar}
-                  alt="Profile"
                 />
               </button>
 
               {/* Dropdown Menu */}
 
               {isDropdownOpen && (
-                <div>
-                  <ul>
+                <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                  <ul className="py-2">
                     {navigation.map((item) => (
-                      <li key={item.name}>
+                      <li
+                        key={item.name}
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
                         <Link
                           to={item.href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
