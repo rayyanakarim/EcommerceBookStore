@@ -9,11 +9,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 //import "./styles.css";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 
 const categories = [
   "Choose a genre",
@@ -68,6 +69,10 @@ const TopSellers = () => {
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -86,7 +91,7 @@ const TopSellers = () => {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         {/* Books Grid */}

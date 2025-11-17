@@ -25,14 +25,25 @@
 }
 
 .swiper-button-prev {
-  display: none !important;
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 9999px;
+  z-index: 50;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
 .swiper-button-next {
   background-color: white;
   padding: 1.25rem;
   border-radius: 9999px;
   z-index: 50;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .btn-primary {
