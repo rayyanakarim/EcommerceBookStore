@@ -1,5 +1,5 @@
 import React from "react";
-import bannerImg from "../../assets/banner.png";
+import bannerImg from "../../assets/books/banner.png";
 
 const Banner = () => {
   return (
@@ -16,12 +16,7 @@ const Banner = () => {
         <h1 className="md:text-5xl text-2xl font-medium mb-7">
           Welcome to the Book Store
         </h1>
-        <p className="mb-10">
-          Discover your next great read with us!Discover your next great read
-          with us!Discover your next great read with us!Discover your next great
-          read with us!Discover your next great read with us!Discover your next
-          great read with us!
-        </p>
+        <p className="mb-10">Discover your next great read with us!</p>
         <button className="btn-primary">Subscribe</button>
       </div>
     </div>

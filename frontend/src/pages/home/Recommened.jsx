@@ -1,18 +1,27 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import BookCard from "../books/BookCard";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// import required modules
+import { Navigation, Pagination } from "swiper/modules";
 
 const Recommened = () => {
   const [Books, setBooks] = useState([]);
 
   useEffect(() => {
     //fetch top selling books from backend api
-    fetch("Books.json")
+    fetch("/Books.json")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
 
   return (
-    <div>
+    <div className="py-16">
       <h2 className="text-3xl font-semibold mb-6">Recommeneded for you</h2>
 
       <Swiper
@@ -40,13 +49,13 @@ const Recommened = () => {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation, Pagination]}
         className="mySwiper"
       >
         {/* Books Grid */}
 
-        {filteredBooks.length > 0 &&
-          filteredBooks.map((book, index) => (
+        {Books.length > 0 &&
+          Books.slice(8, 18).map((book, index) => (
             <SwiperSlide key={index}>
               <BookCard book={book} />
             </SwiperSlide>

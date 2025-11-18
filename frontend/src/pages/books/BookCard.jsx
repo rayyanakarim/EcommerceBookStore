@@ -2,6 +2,7 @@ import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import getImgUrl from "../../utils/getImgUrl";
 import { Link } from "react-router-dom";
+import { truncateText } from "../../utils/truncateText";
 
 const BookCard = ({ book }) => {
   return (
@@ -23,9 +24,14 @@ const BookCard = ({ book }) => {
               {book.title}
             </h3>
           </Link>
-          <p className="text-gray-600 mb-5">{book.description}</p>
+          <p className="text-gray-600 mb-5">
+            {truncateText(book.description, 60)}
+          </p>
           <p className="font-medium mb-5">
-            $80 <span className="line-through font-normal ml-2">$100</span>
+            ${book.newPrice}{" "}
+            <span className="line-through font-normal ml-2">
+              ${book.oldPrice}
+            </span>
           </p>
           <button className="btn-primary px-6 space-x-1 flex items-center gap-1 self-start">
             <FiShoppingCart className="" />

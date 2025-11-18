@@ -32,7 +32,7 @@ const TopSellers = () => {
 
   useEffect(() => {
     //fetch top selling books from backend api
-    fetch("Books.json")
+    fetch("/Books.json")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
